@@ -24,7 +24,7 @@ export const HeroContent = () => {
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[13px]">
-            REXLUNA · Fullstack Solutions in Modern Web & App Development
+            DEXLUNA · Fullstack Solutions in Modern Web & App Development
           </h1>
         </motion.div>
 
@@ -45,7 +45,7 @@ export const HeroContent = () => {
           variants={slideInFromLeft(0.8)}
           className="text-lg text-gray-400 my-5 max-w-[600px]"
         >
-          REXLUNA is a Full Stack Software Engineering company specializing in
+          DEXLUNA is a Full Stack Software Engineering company specializing in
           Website, Mobile, and Custom Software development. We build reliable,
           scalable, and modern digital solutions tailored to client needs. With
           expertise across the full development lifecycle, REXLUNA delivers
