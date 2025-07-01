@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://dexluna.com
+
+# Sitemaps
+Sitemap: https://dexluna.com/sitemap.xml
