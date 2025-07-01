@@ -14,7 +14,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#030014",
 };
 
 export const metadata: Metadata = siteConfig;
@@ -22,12 +22,7 @@ export const metadata: Metadata = siteConfig;
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "bg-white text-black overflow-y-scroll overflow-x-hidden",
-          inter.className
-        )}
-      >
+      <body className={cn("bg-[#030014] overflow-y-scroll overflow-x-hidden")}>
         <Providers>
           <StarsCanvas />
           <Navbar />
