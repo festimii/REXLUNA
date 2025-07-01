@@ -376,4 +376,9 @@ export const FEATURES = [
     title: "Cloud & Infrastructure",
     description: "Scalable solutions deployed on reliable infrastructure.",
   },
+  {
+    title: "Cloud Consulting",
+    description:
+      "Expert guidance to leverage the cloud for security and scale.",
+  },
 ] as const;

@@ -4,6 +4,7 @@ import { slideInFromTop } from "@/lib/motion";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FEATURES } from "@/constants";
+import { CloudAnimation } from "./cloud-animation";
 
 export const Features = () => {
   return (
@@ -26,6 +27,9 @@ export const Features = () => {
             <p className="text-white">{feature.description}</p>
           </div>
         ))}
+      </div>
+      <div className="mt-10 w-full max-w-md">
+        <CloudAnimation />
       </div>
     </section>
   );
