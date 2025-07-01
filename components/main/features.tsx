@@ -7,10 +7,7 @@ import { FEATURES } from "@/constants";
 
 export const Features = () => {
   return (
-    <section
-      id="features"
-      className="bg-[#030014]  flex flex-col items-center justify-center py-20"
-    >
+    <section id="features" className="relative flex flex-col h-full w-full">
       <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-10">
         Features
       </h1>
