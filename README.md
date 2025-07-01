@@ -22,7 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 
 - 3D background using `@react-three/fiber`
 - Animations with Framer Motion
-- **Light/Dark mode toggle** powered by `next-themes`
+- Features section highlighting service offerings
 
 ## License
 
