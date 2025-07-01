@@ -4,7 +4,19 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
 import type { Mesh } from "three";
 
-export const CloudAnimation = () => {
+export const CloudAnimation = () => (
+  <div className="absolute inset-0 z-0">
+    <Canvas camera={{ position: [0, 0, 3] }}>
+      <ambientLight />
+      <pointLight position={[10, 10, 10]} />
+      <Suspense fallback={null}>
+        <RotatingSphere />
+      </Suspense>
+    </Canvas>
+  </div>
+);
+
+const RotatingSphere = () => {
   const meshRef = useRef<Mesh>(null);
 
   useFrame((_state, delta) => {
@@ -15,17 +27,9 @@ export const CloudAnimation = () => {
   });
 
   return (
-    <div className="w-full h-64">
-      <Canvas camera={{ position: [0, 0, 3] }}>
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
-        <Suspense fallback={null}>
-          <mesh ref={meshRef}>
-            <sphereGeometry args={[1, 32, 32]} />
-            <meshStandardMaterial color="#61dafb" />
-          </mesh>
-        </Suspense>
-      </Canvas>
-    </div>
+    <mesh ref={meshRef}>
+      <sphereGeometry args={[1, 32, 32]} />
+      <meshStandardMaterial color="#61dafb" />
+    </mesh>
   );
 };
