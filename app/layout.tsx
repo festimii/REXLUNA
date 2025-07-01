@@ -14,7 +14,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const viewport: Viewport = {
-  themeColor: "#030014",
+  themeColor: "#ffffff",
 };
 
 export const metadata: Metadata = siteConfig;
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "bg-white text-black dark:bg-[#030014] dark:text-white overflow-y-scroll overflow-x-hidden",
+          "bg-white text-black overflow-y-scroll overflow-x-hidden",
           inter.className
         )}
       >

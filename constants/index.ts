@@ -362,3 +362,18 @@ export const NAV_LINKS = [
 export const LINKS = {
   sourceCode: "https://github.com/festimii",
 };
+
+export const FEATURES = [
+  {
+    title: "Custom Web Development",
+    description: "Modern and responsive websites tailored to your business.",
+  },
+  {
+    title: "Mobile App Development",
+    description: "Cross-platform applications for iOS and Android.",
+  },
+  {
+    title: "Cloud & Infrastructure",
+    description: "Scalable solutions deployed on reliable infrastructure.",
+  },
+] as const;

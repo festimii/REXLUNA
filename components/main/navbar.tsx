@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { LINKS, NAV_LINKS, SOCIALS } from "@/constants";
-import { ThemeToggle } from "@/components/main/theme-toggle";
 
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -59,15 +58,14 @@ export const Navbar = () => {
               rel="noreferrer noopener"
               key={name}
             >
-              <Icon className="h-6 w-6 text-black dark:text-white" />
+              <Icon className="h-6 w-6 text-black" />
             </Link>
           ))}
-          <ThemeToggle />
         </div>
 
         {/* Hamburger Menu */}
         <button
-          className="md:hidden text-black dark:text-white focus:outline-none text-4xl"
+          className="md:hidden text-black focus:outline-none text-4xl"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           ☰
@@ -109,10 +107,9 @@ export const Navbar = () => {
                 rel="noreferrer noopener"
                 key={name}
               >
-                <Icon className="h-8 w-8 text-black dark:text-white" />
+                <Icon className="h-8 w-8 text-black" />
               </Link>
             ))}
-            <ThemeToggle />
           </div>
         </div>
       )}
