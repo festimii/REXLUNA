@@ -35,7 +35,7 @@ export const ContactForm = ({ onNameChange }: ContactFormProps) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative z-10 w-full max-w-xl p-8 space-y-6 rounded-xl border border-white/20 bg-black/60 backdrop-blur-lg shadow-xl"
+      className="relative z-10 w-full max-w-xl p-8 space-y-6 rounded-xl border border-white/20  bg-white/5 shadow-xl"
     >
       <h1 className="text-3xl font-bold text-center bg-gradient-to-r from-purple-500 to-cyan-500 bg-clip-text text-transparent">
         Get in touch
