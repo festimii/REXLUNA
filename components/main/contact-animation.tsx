@@ -10,8 +10,6 @@ interface ContactAnimationProps {
 
 export const ContactAnimation = ({ text }: ContactAnimationProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
   const morphRef = useRef<(t: string) => void>();
   const initialText = useRef(text);
   useEffect(() => {
@@ -253,23 +251,8 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
     };
     window.addEventListener("resize", handleResize);
 
-    const input = inputRef.current;
-    const button = buttonRef.current;
-
-    const handleClick = () => {
-      const text = input?.value.trim();
-      if (text) morphToText(text);
-    };
-    button?.addEventListener("click", handleClick);
-    const handleKeypress = (e: KeyboardEvent) => {
-      if (e.key === "Enter") handleClick();
-    };
-    input?.addEventListener("keypress", handleKeypress);
-
     return () => {
       window.removeEventListener("resize", handleResize);
-      button?.removeEventListener("click", handleClick);
-      input?.removeEventListener("keypress", handleKeypress);
       renderer.dispose();
       container.removeChild(renderer.domElement);
     };
@@ -281,25 +264,6 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
     }
   }, [text]);
 
-  return (
-    <div ref={containerRef} className="absolute inset-0 -z-10">
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 z-10">
-        <input
-          ref={inputRef}
-          id="morphText"
-          type="text"
-          placeholder="Type text..."
-          className="rounded-md bg-black/50 px-2 py-1 text-white outline-none"
-        />
-        <button
-          ref={buttonRef}
-          id="typeBtn"
-          className="rounded-md bg-purple-600 px-3 py-1 text-white"
-        >
-          Morph
-        </button>
-      </div>
-    </div>
-  );
+  return <div ref={containerRef} className="absolute inset-0 -z-10" />;
 };
 
