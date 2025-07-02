@@ -107,8 +107,8 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
         return;
       }
 
-      const positions =
-        particles.geometry.attributes.position.array as Float32Array;
+      const positions = particles.geometry.attributes.position
+        .array as Float32Array;
       const candidates: { idx: number; d: number }[] = [];
       for (let i = 0; i < count; i++) {
         const idx = i * 3;
@@ -133,8 +133,14 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
         const end = mousePos.clone();
         const mid = start.clone().lerp(end, 0.5);
         mid.y += 2;
-        const ctrl1 = start.clone().lerp(mid, 0.5).add(new THREE.Vector3(0, 1, 0));
-        const ctrl2 = end.clone().lerp(mid, 0.5).add(new THREE.Vector3(0, 1, 0));
+        const ctrl1 = start
+          .clone()
+          .lerp(mid, 0.5)
+          .add(new THREE.Vector3(0, 1, 0));
+        const ctrl2 = end
+          .clone()
+          .lerp(mid, 0.5)
+          .add(new THREE.Vector3(0, 1, 0));
         const curve = new THREE.CubicBezierCurve3(start, ctrl1, ctrl2, end);
         const pts = curve.getPoints(20);
         const geom = new THREE.BufferGeometry().setFromPoints(pts);
@@ -326,11 +332,11 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
       renderer.setSize(container.clientWidth, container.clientHeight);
     };
     window.addEventListener("resize", handleResize);
-    container.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mousemove", onMouseMove);
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      container.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mousemove", onMouseMove);
       clearLines();
       renderer.dispose();
       container.removeChild(renderer.domElement);
