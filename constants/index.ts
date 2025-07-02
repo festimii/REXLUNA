@@ -422,3 +422,25 @@ export const PARTNERS = [
     link: "https://example.com",
   },
 ] as const;
+
+export const TESTIMONIALS = [
+  {
+    name: "Alice Johnson",
+    role: "Product Manager at ExampleCorp",
+    image: "https://avatars.githubusercontent.com/u/583231?v=4",
+    quote: "DEXLUNA delivered beyond our expectations with a modern and reliable solution.",
+  },
+  {
+    name: "Carlos Diaz",
+    role: "CTO at InnovateX",
+    image: "https://avatars.githubusercontent.com/u/19864447?v=4",
+    quote: "Their attention to detail and communication made the project a success.",
+  },
+  {
+    name: "Marie Curie",
+    role: "Founder of BrightIdeas",
+    image: "https://avatars.githubusercontent.com/u/7131348?v=4",
+    quote: "Working with DEXLUNA was a pleasure. The team is professional and talented.",
+  },
+] as const;
+
