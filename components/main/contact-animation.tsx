@@ -47,11 +47,9 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
         positions[i * 3 + 2] = point.z + (Math.random() - 0.5) * 0.5;
 
         const color = new THREE.Color();
-        const depth = Math.sqrt(
-          point.x * point.x +
-            point.y * point.y +
-            point.z * point.z
-        ) / 8;
+        const depth =
+          Math.sqrt(point.x * point.x + point.y * point.y + point.z * point.z) /
+          8;
         color.setHSL(0.5 + depth * 0.2, 0.7, 0.4 + depth * 0.3);
 
         colors[i * 3] = color.r;
@@ -59,7 +57,10 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
         colors[i * 3 + 2] = color.b;
       }
 
-      geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+      geometry.setAttribute(
+        "position",
+        new THREE.BufferAttribute(positions, 3)
+      );
       geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
       const material = new THREE.PointsMaterial({
@@ -80,14 +81,16 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
       const canvas = document.createElement("canvas");
       const ctx = canvas.getContext("2d")!;
       const fontSize = 100;
-      const padding = 20;
+      const padding = 40;
 
       ctx.font = `bold ${fontSize}px Arial`;
       const textMetrics = ctx.measureText(text);
       const textWidth = textMetrics.width;
       const textHeight = fontSize;
 
-      canvas.width = textWidth + padding * 2;
+      if (canvas.width > 2048) canvas.width = 2048; // optional limit
+
+      canvas.width = Math.ceil(textWidth + padding * 2);
       canvas.height = textHeight + padding * 2;
 
       ctx.fillStyle = "white";
@@ -100,7 +103,11 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
       const pixels = imageData.data;
       const points: { x: number; y: number }[] = [];
       const threshold = 128;
-
+      const scaleFactor = Math.min(1, 300 / text.length); // adjust max width
+      points.forEach((p) => {
+        p.x *= scaleFactor;
+        p.y *= scaleFactor;
+      });
       for (let i = 0; i < pixels.length; i += 4) {
         if (pixels[i] > threshold) {
           const x = (i / 4) % canvas.width;
@@ -119,7 +126,8 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
     function morphToText(text: string) {
       currentState = "text";
       const textPoints = createTextPoints(text);
-      const positions = particles.geometry.attributes.position.array as Float32Array;
+      const positions = particles.geometry.attributes.position
+        .array as Float32Array;
       const targetPositions = new Float32Array(count * 3);
 
       gsap.to(particles.rotation, { x: 0, y: 0, z: 0, duration: 0.5 });
@@ -158,7 +166,8 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
 
     function morphToCircle() {
       currentState = "sphere";
-      const positions = particles.geometry.attributes.position.array as Float32Array;
+      const positions = particles.geometry.attributes.position
+        .array as Float32Array;
       const targetPositions = new Float32Array(count * 3);
       const colors = particles.geometry.attributes.color.array as Float32Array;
 
@@ -178,11 +187,9 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
         targetPositions[i * 3 + 1] = point.y + (Math.random() - 0.5) * 0.5;
         targetPositions[i * 3 + 2] = point.z + (Math.random() - 0.5) * 0.5;
 
-        const depth = Math.sqrt(
-          point.x * point.x +
-            point.y * point.y +
-            point.z * point.z
-        ) / 8;
+        const depth =
+          Math.sqrt(point.x * point.x + point.y * point.y + point.z * point.z) /
+          8;
         const color = new THREE.Color();
         color.setHSL(0.5 + depth * 0.2, 0.7, 0.4 + depth * 0.3);
 
@@ -233,9 +240,9 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
       0.1,
       1000
     );
-    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setClearColor(0x000000);
+
     container.appendChild(renderer.domElement);
     camera.position.z = 25;
 
@@ -266,4 +273,3 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
 
   return <div ref={containerRef} className="absolute inset-0 -z-10" />;
 };
-
