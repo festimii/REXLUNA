@@ -17,7 +17,7 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
     let camera: THREE.PerspectiveCamera;
     let renderer: THREE.WebGLRenderer;
     let particles: THREE.Points<THREE.BufferGeometry, THREE.PointsMaterial>;
-    let lines: THREE.Line[] = [];
+    let line: THREE.Line | null = null;
 
     const count = 20000;
 
@@ -79,13 +79,13 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
       scene.add(particles);
     }
 
-    function clearLines() {
-      lines.forEach((l) => {
-        scene.remove(l);
-        l.geometry.dispose();
-        (l.material as THREE.Material).dispose();
-      });
-      lines = [];
+    function clearLine() {
+      if (line) {
+        scene.remove(line);
+        line.geometry.dispose();
+        (line.material as THREE.Material).dispose();
+        line = null;
+      }
     }
 
     function onMouseMove(event: MouseEvent) {
@@ -103,7 +103,7 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
         .add(dir.multiplyScalar(distance));
 
       if (mousePos.length() > 12) {
-        clearLines();
+        clearLine();
         return;
       }
 
@@ -121,38 +121,35 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
         }
       }
       candidates.sort((a, b) => a.d - b.d);
-      clearLines();
-      const maxLines = Math.min(20, candidates.length);
-      for (let i = 0; i < maxLines; i++) {
-        const idx = candidates[i].idx;
-        const start = new THREE.Vector3(
-          positions[idx],
-          positions[idx + 1],
-          positions[idx + 2]
-        );
-        const end = mousePos.clone();
-        const mid = start.clone().lerp(end, 0.5);
-        mid.y += 2;
-        const ctrl1 = start
-          .clone()
-          .lerp(mid, 0.5)
-          .add(new THREE.Vector3(0, 1, 0));
-        const ctrl2 = end
-          .clone()
-          .lerp(mid, 0.5)
-          .add(new THREE.Vector3(0, 1, 0));
-        const curve = new THREE.CubicBezierCurve3(start, ctrl1, ctrl2, end);
-        const pts = curve.getPoints(20);
-        const geom = new THREE.BufferGeometry().setFromPoints(pts);
-        const mat = new THREE.LineBasicMaterial({
-          color: "white",
-          transparent: true,
-          opacity: 0.6,
-        });
-        const line = new THREE.Line(geom, mat);
-        scene.add(line);
-        lines.push(line);
-      }
+      clearLine();
+      if (!candidates.length) return;
+      const idx = candidates[0].idx;
+      const start = new THREE.Vector3(
+        positions[idx],
+        positions[idx + 1],
+        positions[idx + 2]
+      );
+      const end = mousePos.clone();
+      const mid = start.clone().lerp(end, 0.5);
+      mid.y += 2;
+      const ctrl1 = start
+        .clone()
+        .lerp(mid, 0.5)
+        .add(new THREE.Vector3(0, 1, 0));
+      const ctrl2 = end
+        .clone()
+        .lerp(mid, 0.5)
+        .add(new THREE.Vector3(0, 1, 0));
+      const curve = new THREE.CubicBezierCurve3(start, ctrl1, ctrl2, end);
+      const pts = curve.getPoints(20);
+      const geom = new THREE.BufferGeometry().setFromPoints(pts);
+      const mat = new THREE.LineBasicMaterial({
+        color: "white",
+        transparent: true,
+        opacity: 0.6,
+      });
+      line = new THREE.Line(geom, mat);
+      scene.add(line);
     }
 
     function createTextPoints(text: string) {
@@ -337,7 +334,7 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", onMouseMove);
-      clearLines();
+      clearLine();
       renderer.dispose();
       container.removeChild(renderer.domElement);
     };
