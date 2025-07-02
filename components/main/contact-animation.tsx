@@ -102,12 +102,10 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
         .clone()
         .add(dir.multiplyScalar(distance));
 
-
-      // Allow drawing the line across the entire screen by
-      // removing the distance restriction from the camera
-      // so the line remains visible even when the mouse is
-      // far away from the particle sphere.
-
+      if (mousePos.length() > 12) {
+        clearLine();
+        return;
+      }
       const positions = particles.geometry.attributes.position
         .array as Float32Array;
       const candidates: { idx: number; d: number }[] = [];
@@ -137,10 +135,7 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
         .clone()
         .lerp(mid, 0.5)
         .add(new THREE.Vector3(0, 1, 0));
-      const ctrl2 = end
-        .clone()
-        .lerp(mid, 0.5)
-        .add(new THREE.Vector3(0, 1, 0));
+      const ctrl2 = end.clone().lerp(mid, 0.5).add(new THREE.Vector3(0, 1, 0));
       const curve = new THREE.CubicBezierCurve3(start, ctrl1, ctrl2, end);
       const pts = curve.getPoints(20);
       const geom = new THREE.BufferGeometry().setFromPoints(pts);
