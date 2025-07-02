@@ -102,10 +102,11 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
         .clone()
         .add(dir.multiplyScalar(distance));
 
-      if (mousePos.length() > 12) {
-        clearLine();
-        return;
-      }
+
+      // Allow drawing the line across the entire screen by
+      // removing the distance restriction from the camera
+      // so the line remains visible even when the mouse is
+      // far away from the particle sphere.
 
       const positions = particles.geometry.attributes.position
         .array as Float32Array;
@@ -116,9 +117,9 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
         const py = positions[idx + 1];
         const pz = positions[idx + 2];
         const d = Math.hypot(px - mousePos.x, py - mousePos.y, pz - mousePos.z);
-        if (d < 5) {
-          candidates.push({ idx, d });
-        }
+        // Record the distance for every particle so the closest
+        // one can be chosen even when the pointer is far away.
+        candidates.push({ idx, d });
       }
       candidates.sort((a, b) => a.d - b.d);
       clearLine();
@@ -146,9 +147,16 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
       const mat = new THREE.LineBasicMaterial({
         color: "white",
         transparent: true,
-        opacity: 0.6,
+        opacity: 0.8,
+        linewidth: 3,
       });
       line = new THREE.Line(geom, mat);
+      // Create a subtle pulsing effect by animating the opacity
+      gsap.fromTo(
+        mat,
+        { opacity: 0.4 },
+        { opacity: 0.8, repeat: -1, yoyo: true, duration: 0.8 }
+      );
       scene.add(line);
     }
 
