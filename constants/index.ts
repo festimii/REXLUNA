@@ -386,3 +386,21 @@ export const FEATURES = [
       "Expert guidance to leverage the cloud for security and scale.",
   },
 ] as const;
+
+export const PARTNERS = [
+  {
+    name: "Partner One",
+    logo: "/logo.png",
+    link: "https://example.com",
+  },
+  {
+    name: "Partner Two",
+    logo: "/logo1.png",
+    link: "https://example.com",
+  },
+  {
+    name: "Partner Three",
+    logo: "/iconS.png",
+    link: "https://example.com",
+  },
+] as const;

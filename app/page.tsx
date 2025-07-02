@@ -1,4 +1,4 @@
-import { Encryption } from "@/components/main/encryption";
+import { Partners } from "@/components/main/partners";
 import { Hero } from "@/components/main/hero";
 import { Projects } from "@/components/main/projects";
 import { Features } from "@/components/main/features";
@@ -10,7 +10,7 @@ export default function Home() {
       <div className="flex flex-col gap-20">
         <Hero />
         <Skills />
-        <Encryption />
+        <Partners />
         <Features />
         <Projects />
       </div>
