@@ -5,6 +5,7 @@ import type { PropsWithChildren } from "react";
 import { Footer } from "@/components/main/footer";
 import { Navbar } from "@/components/main/navbar";
 import { StarsCanvas } from "@/components/main/star-background";
+import { SupernovaPointer } from "@/components/main/supernova-pointer";
 import { Providers } from "@/components/main/providers";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body className={cn("bg-[#030014] overflow-y-scroll overflow-x-hidden")}>
         <Providers>
           <StarsCanvas />
+          <SupernovaPointer />
           <Navbar />
           {children}
           <Footer />
