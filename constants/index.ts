@@ -259,11 +259,11 @@ export const OTHER_SKILL = [
 
 export const PROJECTS = [
   {
-    title: "Modern Next.js 14 Portfolio",
+    title: "QKSS - Map Pin ",
     description:
-      'Embark on a journey through my professional evolution with the "Modern Next.js Portfolio" - a dynamic showcase of my skills, experiences, and passion for web development. Crafted with precision and powered by Next.js, this portfolio is more than just a static display; it\'s an immersive experience that reflects the cutting edge of modern web technologies.',
+      "The QKSS Map Pin platform is a comprehensive monitoring tool designed to track and document events that influence interethnic relations in Kosovo. It serves as a resource to support early warning mechanisms, informed policy analysis, and initiatives aimed at fostering dialogue and building trust among communities.By systematically collecting and mapping incidents and developments, the platform offers real-time insight into dynamics that may impact social cohesion, security, and stability.",
     image: "/projects/project-1.png",
-    link: "https://example.com",
+    link: "https://imap.qkss.org/",
   },
   {
     title: "Interactive Cards Portfolio",
