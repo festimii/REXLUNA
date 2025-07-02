@@ -9,12 +9,21 @@ export const Partners = () => {
   return (
     <section
       id="partners"
-      className="relative flex flex-col items-center justify-center min-h-screen w-full px-4 py-20"
+      className="relative flex flex-col items-center justify-center min-h-screen w-full px-4"
     >
+      {" "}
       <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 mb-12 text-center">
-        Partners
+        Trusted Technology Partner for Your Digital Future
       </h1>
-
+      <p className="text-white text-md mb-8 max-w-2xl text-center">
+        At Dexluna, we collaborate with forward-thinking organizations to
+        deliver innovative software solutions that drive growth, improve
+        efficiency, and enhance user experience. Whether you're a startup,
+        enterprise, or public sector partner, we bring deep technical expertise,
+        agile development practices, and a commitment to excellence to every
+        project. Join us in building impactful digital products that shape
+        tomorrow.
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl">
         {PARTNERS.map((partner) => (
           <Link

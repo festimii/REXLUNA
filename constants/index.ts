@@ -389,14 +389,14 @@ export const FEATURES = [
 
 export const PARTNERS = [
   {
-    name: "Partner One",
-    logo: "/logo.png",
-    link: "https://example.com",
+    name: "Qendra Kosovare për Studime të Sigurisë(QKSS)",
+    logo: "/partners/qkss_logo_blue-en_1.png",
+    link: "https://qkss.org/",
   },
   {
-    name: "Partner Two",
-    logo: "/logo1.png",
-    link: "https://example.com",
+    name: "Ministria e Puneve te Brendshme e Kosoves",
+    logo: "/partners/111-02.png",
+    link: "https://mpb.rks-gov.net/",
   },
   {
     name: "Partner Three",
