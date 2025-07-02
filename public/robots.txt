@@ -1,9 +1,9 @@
-# *
+# Allow all user agents full access
 User-agent: *
-Allow: /
+Disallow:
 
-# Host
-Host: https://dexluna.com
+# Preferred domain (optional; not supported by all crawlers)
+Host: dexluna.com
 
-# Sitemaps
+# Sitemap location
 Sitemap: https://dexluna.com/sitemap.xml

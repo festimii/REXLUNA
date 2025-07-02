@@ -293,7 +293,7 @@ export const FOOTER_DATA = [
       {
         name: "GitHub",
         icon: RxGithubLogo,
-        link: "https://github.com",
+        link: "https://github.com/festimii",
       },
       {
         name: "Discord",
@@ -338,7 +338,7 @@ export const FOOTER_DATA = [
       {
         name: "Contact Me",
         icon: null,
-        link: "mailto:contact@example.com",
+        link: "mailto:festimii200@gmail.com",
       },
     ],
   },
@@ -397,13 +397,11 @@ export const FEATURES = [
   },
   {
     title: "DevOps & CI/CD",
-    description:
-      "Automated pipelines for continuous integration and delivery.",
+    description: "Automated pipelines for continuous integration and delivery.",
   },
   {
     title: "Security Auditing",
-    description:
-      "Comprehensive reviews to safeguard code and infrastructure.",
+    description: "Comprehensive reviews to safeguard code and infrastructure.",
   },
 ] as const;
 
