@@ -4,11 +4,16 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { gsap } from "gsap";
 
-export const ContactAnimation = () => {
+interface ContactAnimationProps {
+  text?: string;
+}
+
+export const ContactAnimation = ({ text }: ContactAnimationProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-
+  const morphRef = useRef<(t: string) => void>();
+  const initialText = useRef(text);
   useEffect(() => {
     let scene: THREE.Scene;
     let camera: THREE.PerspectiveCamera;
@@ -151,6 +156,8 @@ export const ContactAnimation = () => {
       setTimeout(() => morphToCircle(), 4000);
     }
 
+    morphRef.current = morphToText;
+
     function morphToCircle() {
       currentState = "sphere";
       const positions = particles.geometry.attributes.position.array as Float32Array;
@@ -236,6 +243,7 @@ export const ContactAnimation = () => {
 
     createParticles();
     animate();
+    if (initialText.current) morphToText(initialText.current);
 
     const handleResize = () => {
       if (!container) return;
@@ -266,6 +274,12 @@ export const ContactAnimation = () => {
       container.removeChild(renderer.domElement);
     };
   }, []);
+
+  useEffect(() => {
+    if (text && morphRef.current) {
+      morphRef.current(text);
+    }
+  }, [text]);
 
   return (
     <div ref={containerRef} className="absolute inset-0 -z-10">

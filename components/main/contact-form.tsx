@@ -1,13 +1,26 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export const ContactForm = () => {
+interface ContactFormProps {
+  onNameChange?: (name: string) => void;
+}
+
+export const ContactForm = ({ onNameChange }: ContactFormProps) => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+
+  useEffect(() => {
+    if (onNameChange) {
+      onNameChange("John Doe");
+    }
+  }, [onNameChange]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    if (e.target.name === "name" && onNameChange) {
+      onNameChange(e.target.value);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
