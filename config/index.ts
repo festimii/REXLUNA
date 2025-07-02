@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 
+const metadataBase = new URL("https://dexluna.com");
+
 export const siteConfig: Metadata = {
+  metadataBase,
   title: "DEXLUNA | Softweare Solutions",
   description:
     "Software Solutions for your business, powered by Next.js 14 and React.",
@@ -92,5 +95,32 @@ export const siteConfig: Metadata = {
   authors: {
     name: "FestimBEQIRI",
     url: "https://github.com/festimii",
+  },
+  openGraph: {
+    title: "DEXLUNA | Softweare Solutions",
+    description:
+      "Software Solutions for your business, powered by Next.js 14 and React.",
+    url: "https://dexluna.com",
+    siteName: "DEXLUNA",
+    images: [
+      {
+        url: "/logo1.png",
+        width: 512,
+        height: 512,
+        alt: "DEXLUNA logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DEXLUNA | Softweare Solutions",
+    description:
+      "Software Solutions for your business, powered by Next.js 14 and React.",
+    images: ["/logo1.png"],
+  },
+  alternates: {
+    canonical: "/",
   },
 } as const;
