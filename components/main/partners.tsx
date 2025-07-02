@@ -18,7 +18,7 @@ export const Partners = () => {
       <p className="text-white text-md mb-8 max-w-2xl text-center">
         At Dexluna, we collaborate with forward-thinking organizations to
         deliver innovative software solutions that drive growth, improve
-        efficiency, and enhance user experience. Whether you're a startup,
+        efficiency, and enhance user experience. Whether you&apos;re a startup,
         enterprise, or public sector partner, we bring deep technical expertise,
         agile development practices, and a commitment to excellence to every
         project. Join us in building impactful digital products that shape

@@ -385,6 +385,26 @@ export const FEATURES = [
     description:
       "Expert guidance to leverage the cloud for security and scale.",
   },
+  {
+    title: "UI/UX Design",
+    description:
+      "Human-centered interface design focused on aesthetics and usability.",
+  },
+  {
+    title: "API Integration",
+    description:
+      "Seamless connectivity with third-party services and data providers.",
+  },
+  {
+    title: "DevOps & CI/CD",
+    description:
+      "Automated pipelines for continuous integration and delivery.",
+  },
+  {
+    title: "Security Auditing",
+    description:
+      "Comprehensive reviews to safeguard code and infrastructure.",
+  },
 ] as const;
 
 export const PARTNERS = [
