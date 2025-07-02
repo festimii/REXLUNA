@@ -18,9 +18,10 @@ export const ContactForm = ({ onNameChange }: ContactFormProps) => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    if (e.target.name === "name" && onNameChange) {
-      onNameChange(e.target.value);
-    }
+  };
+
+  const handleEmailFocus = () => {
+    if (onNameChange) onNameChange(form.name);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -65,6 +66,7 @@ export const ContactForm = ({ onNameChange }: ContactFormProps) => {
           placeholder="you@example.com"
           value={form.email}
           onChange={handleChange}
+          onFocus={handleEmailFocus}
           required
           className="p-3 rounded-md bg-transparent border border-gray-700 text-white focus:ring-2 focus:ring-purple-500 outline-none"
         />
