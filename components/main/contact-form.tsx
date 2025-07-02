@@ -10,7 +10,7 @@ export const ContactForm = ({ onNameChange }: ContactFormProps) => {
 
   useEffect(() => {
     if (onNameChange) {
-      onNameChange("Festim");
+      onNameChange("");
     }
   }, [onNameChange]);
 

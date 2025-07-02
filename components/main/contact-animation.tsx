@@ -18,7 +18,8 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
     let renderer: THREE.WebGLRenderer;
     let particles: THREE.Points<THREE.BufferGeometry, THREE.PointsMaterial>;
 
-    const count = 12000;
+    const count = 20000;
+
     let currentState: "sphere" | "text" = "sphere";
 
     if (!containerRef.current) return;
@@ -64,7 +65,7 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
       geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
       const material = new THREE.PointsMaterial({
-        size: 0.08,
+        size: 0.07,
         vertexColors: true,
         blending: THREE.AdditiveBlending,
         transparent: true,
@@ -88,7 +89,7 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
       const textWidth = textMetrics.width;
       const textHeight = fontSize;
 
-      if (canvas.width > 2048) canvas.width = 2048; // optional limit
+      if (canvas.width > 4096) canvas.width = 4096;
 
       canvas.width = Math.ceil(textWidth + padding * 2);
       canvas.height = textHeight + padding * 2;
@@ -104,17 +105,15 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
       const points: { x: number; y: number }[] = [];
       const threshold = 128;
       // Scale down points if the rendered text is too wide
-      const scaleFactor = Math.min(1, 600 / textWidth);
+      const scaleFactor = Math.min(1, 1000 / textWidth);
       for (let i = 0; i < pixels.length; i += 4) {
         if (pixels[i] > threshold) {
           const x = (i / 4) % canvas.width;
           const y = Math.floor(i / 4 / canvas.width);
           if (Math.random() < 0.3) {
             points.push({
-              x:
-                ((x - canvas.width / 2) / (fontSize / 10)) * scaleFactor,
-              y:
-                (-(y - canvas.height / 2) / (fontSize / 10)) * scaleFactor,
+              x: ((x - canvas.width / 2) / (fontSize / 6)) * scaleFactor,
+              y: (-(y - canvas.height / 2) / (fontSize / 6)) * scaleFactor,
             });
           }
         }

@@ -5,7 +5,7 @@ import { ContactForm } from "@/components/main/contact-form";
 import { StarsCanvas } from "@/components/main/star-background";
 
 export default function ContactPage() {
-  const [name, setName] = useState("Festim");
+  const [name, setName] = useState("");
 
   return (
     <main className="relative w-full min-h-screen overflow-hidden">
@@ -14,7 +14,7 @@ export default function ContactPage() {
         <div className="flex flex-1 items-center justify-center">
           <ContactForm onNameChange={setName} />
         </div>
-        <div className="relative w-[450px] h-[450px] md:w-[480px] md:h-[480px] ml-6">
+        <div className="relative w-[400x] h-[400px] md:w-[550px] md:h-[550px] ml-6">
           <ContactAnimation text={`Hi ${name}`} />
         </div>
       </div>
