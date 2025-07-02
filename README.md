@@ -23,6 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 - 3D background using `@react-three/fiber`
 - Animations with Framer Motion
 - Features section highlighting service offerings
+- Testimonials section for social proof
 - Contact page with a Three.js animation
 - Professional service offerings including UI/UX design, API integration,
   DevOps pipelines, and security auditing
