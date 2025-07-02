@@ -103,19 +103,18 @@ export const ContactAnimation = ({ text }: ContactAnimationProps) => {
       const pixels = imageData.data;
       const points: { x: number; y: number }[] = [];
       const threshold = 128;
-      const scaleFactor = Math.min(1, 300 / text.length); // adjust max width
-      points.forEach((p) => {
-        p.x *= scaleFactor;
-        p.y *= scaleFactor;
-      });
+      // Scale down points if the rendered text is too wide
+      const scaleFactor = Math.min(1, 600 / textWidth);
       for (let i = 0; i < pixels.length; i += 4) {
         if (pixels[i] > threshold) {
           const x = (i / 4) % canvas.width;
           const y = Math.floor(i / 4 / canvas.width);
           if (Math.random() < 0.3) {
             points.push({
-              x: (x - canvas.width / 2) / (fontSize / 10),
-              y: -(y - canvas.height / 2) / (fontSize / 10),
+              x:
+                ((x - canvas.width / 2) / (fontSize / 10)) * scaleFactor,
+              y:
+                (-(y - canvas.height / 2) / (fontSize / 10)) * scaleFactor,
             });
           }
         }
