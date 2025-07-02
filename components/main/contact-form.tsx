@@ -21,41 +21,61 @@ export const ContactForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative z-10 flex flex-col gap-4 bg-[#030014cc] p-8 rounded-lg shadow-lg w-full max-w-md"
+      className="relative z-10 w-full max-w-xl p-8 space-y-6 rounded-xl border border-white/20 bg-black/60 backdrop-blur-lg shadow-xl"
     >
-      <h1 className="text-2xl font-semibold text-white text-center">Contact Me</h1>
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        value={form.name}
-        onChange={handleChange}
-        required
-        className="p-2 rounded-md bg-transparent border border-gray-600 text-white"
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={form.email}
-        onChange={handleChange}
-        required
-        className="p-2 rounded-md bg-transparent border border-gray-600 text-white"
-      />
-      <textarea
-        name="message"
-        placeholder="Message"
-        rows={4}
-        value={form.message}
-        onChange={handleChange}
-        required
-        className="p-2 rounded-md bg-transparent border border-gray-600 text-white"
-      />
+      <h1 className="text-3xl font-bold text-center bg-gradient-to-r from-purple-500 to-cyan-500 bg-clip-text text-transparent">
+        Get in touch
+      </h1>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="name" className="text-sm text-gray-200">
+          Name
+        </label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          placeholder="John Doe"
+          value={form.name}
+          onChange={handleChange}
+          required
+          className="p-3 rounded-md bg-transparent border border-gray-700 text-white focus:ring-2 focus:ring-purple-500 outline-none"
+        />
+      </div>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="email" className="text-sm text-gray-200">
+          Email
+        </label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          placeholder="you@example.com"
+          value={form.email}
+          onChange={handleChange}
+          required
+          className="p-3 rounded-md bg-transparent border border-gray-700 text-white focus:ring-2 focus:ring-purple-500 outline-none"
+        />
+      </div>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="message" className="text-sm text-gray-200">
+          Message
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Let's work together..."
+          rows={4}
+          value={form.message}
+          onChange={handleChange}
+          required
+          className="p-3 rounded-md bg-transparent border border-gray-700 text-white focus:ring-2 focus:ring-purple-500 outline-none"
+        />
+      </div>
       <button
         type="submit"
-        className="py-2 px-4 rounded-md bg-gradient-to-r from-purple-500 to-cyan-500 text-white"
+        className="w-full py-2 font-medium rounded-md bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white"
       >
-        Send
+        Send Message
       </button>
     </form>
   );
