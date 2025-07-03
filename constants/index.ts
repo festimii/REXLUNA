@@ -260,6 +260,7 @@ export const OTHER_SKILL = [
 export const PROJECTS = [
   {
     title: "QKSS - Map Pin ",
+    slug: "qkss-map-pin",
     description:
       "The QKSS Map Pin platform is a comprehensive monitoring tool designed to track and document events that influence interethnic relations in Kosovo. It serves as a resource to support early warning mechanisms, informed policy analysis, and initiatives aimed at fostering dialogue and building trust among communities.By systematically collecting and mapping incidents and developments, the platform offers real-time insight into dynamics that may impact social cohesion, security, and stability.",
     image: "/projects/project-1.png",
@@ -267,6 +268,7 @@ export const PROJECTS = [
   },
   {
     title: "Interactive Cards Portfolio",
+    slug: "interactive-cards-portfolio",
     description:
       'Step into the extraordinary world of my professional journey through the "Interactive Cards Portfolio" - an innovative and visually captivating platform that redefines the traditional portfolio experience. Ditching the conventional static layout, this portfolio leverages interactive cards to showcase my skills, projects, and personality in an engaging and dynamic manner.',
     image: "/projects/project-2.png",
@@ -274,6 +276,7 @@ export const PROJECTS = [
   },
   {
     title: "Space Themed Website",
+    slug: "space-themed-website",
     description:
       'Embark on an interstellar journey with my "Space Themed Website", a mesmerizing space-themed website that invites you to explore the cosmic wonders beyond our world. Immerse yourself in an awe-inspiring digital experience that blends cutting-edge design with the mysteries of the universe.',
     image: "/projects/project-3.png",

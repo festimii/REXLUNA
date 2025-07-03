@@ -5,20 +5,18 @@ type ProjectCardProps = {
   src: string;
   title: string;
   description: string;
-  link: string;
+  slug: string;
 };
 
 export const ProjectCard = ({
   src,
   title,
   description,
-  link,
+  slug,
 }: ProjectCardProps) => {
   return (
     <Link
-      href={link}
-      target="_blank"
-      rel="noreferrer noopener"
+      href={`/projects/${slug}`}
       className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61]"
     >
       <Image
