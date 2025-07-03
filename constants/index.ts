@@ -370,38 +370,48 @@ export const LINKS = {
 export const FEATURES = [
   {
     title: "Custom Web Development",
-    description: "Modern and responsive websites tailored to your business.",
+    description:
+      "We build fast, modern, and responsive websites tailored to your brand and goals.",
   },
   {
     title: "Mobile App Development",
-    description: "Cross-platform applications for iOS and Android.",
+    description:
+      "Launch cross-platform apps for iOS and Android that deliver smooth user experiences.",
   },
   {
     title: "Cloud & Infrastructure",
-    description: "Scalable solutions deployed on reliable infrastructure.",
+    description:
+      "Deploy reliable, scalable systems on top-tier cloud infrastructure like AWS and Azure.",
   },
   {
     title: "Cloud Consulting",
     description:
-      "Expert guidance to leverage the cloud for security and scale.",
+      "Get expert advice to make the most of cloud technology—secure, scalable, and cost-effective.",
   },
   {
     title: "UI/UX Design",
     description:
-      "Human-centered interface design focused on aesthetics and usability.",
+      "We craft user-first designs that look stunning and feel effortless to use.",
   },
   {
     title: "API Integration",
     description:
-      "Seamless connectivity with third-party services and data providers.",
+      "Connect your systems with third-party APIs for automation, insights, and new features.",
   },
   {
     title: "DevOps & CI/CD",
-    description: "Automated pipelines for continuous integration and delivery.",
+    description:
+      "Speed up your development with automated CI/CD pipelines and DevOps best practices.",
   },
   {
     title: "Security Auditing",
-    description: "Comprehensive reviews to safeguard code and infrastructure.",
+    description:
+      "Protect your app and data with in-depth security reviews and actionable insights.",
+  },
+  {
+    title: "Maintenance & Support",
+    description:
+      "Ongoing support, updates, and monitoring to keep your software running smoothly.",
   },
 ] as const;
 
@@ -413,34 +423,31 @@ export const PARTNERS = [
   },
   {
     name: "Ministria e Puneve te Brendshme e Kosoves",
-    logo: "/partners/111-02.png",
+    logo: "/partners/Emblem_of_the_Republic_of_Kosovo.svg.png",
     link: "https://mpb.rks-gov.net/",
-  },
-  {
-    name: "Partner Three",
-    logo: "/iconS.png",
-    link: "https://example.com",
   },
 ] as const;
 
 export const TESTIMONIALS = [
   {
     name: "Alice Johnson",
-    role: "Product Manager at ExampleCorp",
-    image: "https://avatars.githubusercontent.com/u/583231?v=4",
-    quote: "DEXLUNA delivered beyond our expectations with a modern and reliable solution.",
+    role: "Head of Digital Strategy at NexaDigital",
+    image: "/testimonials/alice.jpg",
+    quote:
+      "DEXLUNA brought our vision to life with a clean, scalable platform that exceeded all expectations.",
   },
   {
     name: "Carlos Diaz",
     role: "CTO at InnovateX",
-    image: "https://avatars.githubusercontent.com/u/19864447?v=4",
-    quote: "Their attention to detail and communication made the project a success.",
+    image: "/testimonials/marie.jpg",
+    quote:
+      "The team’s technical depth and proactive communication made every milestone smooth and successful.",
   },
   {
     name: "Marie Curie",
     role: "Founder of BrightIdeas",
-    image: "https://avatars.githubusercontent.com/u/7131348?v=4",
-    quote: "Working with DEXLUNA was a pleasure. The team is professional and talented.",
+    image: "/testimonials/carlos.jpg",
+    quote:
+      "From concept to launch, DEXLUNA delivered with professionalism, creativity, and attention to detail.",
   },
 ] as const;
-
