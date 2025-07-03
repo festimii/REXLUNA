@@ -286,11 +286,6 @@ export const FOOTER_DATA = [
     title: "Community",
     data: [
       {
-        name: "YouTube",
-        icon: FaYoutube,
-        link: "https://youtube.com",
-      },
-      {
         name: "GitHub",
         icon: RxGithubLogo,
         link: "https://github.com/festimii",
@@ -326,17 +321,7 @@ export const FOOTER_DATA = [
     title: "About",
     data: [
       {
-        name: "Become Sponsor",
-        icon: null,
-        link: "https://youtube.com",
-      },
-      {
-        name: "Learning about me",
-        icon: null,
-        link: "https://example.com",
-      },
-      {
-        name: "Contact Me",
+        name: "Contact US",
         icon: null,
         link: "mailto:festimii200@gmail.com",
       },
