@@ -16,39 +16,43 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <main className="flex flex-col items-center py-20 px-4">
+    <main className="flex flex-col items-center py-20 px-4 space-y-12">
       <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
         {project.title}
       </h1>
-      <div className="mt-10 w-full max-w-4xl flex flex-col items-center gap-6">
+      <div className="w-full max-w-4xl space-y-8">
         <Image
           src={project.image}
           alt={project.title}
           width={1000}
           height={1000}
-          className="w-full object-contain rounded-lg"
+          className="w-full object-contain rounded-lg shadow-lg"
         />
         <p className="text-gray-300 text-center">{project.description}</p>
-        <details className="w-full max-w-2xl">
-          <summary className="cursor-pointer text-lg font-medium text-white">Technologies Used</summary>
-          <ul className="list-disc pl-5 mt-2 text-gray-300">
-            {project.technologies.map((tech) => (
-              <li key={tech}>{tech}</li>
-            ))}
-          </ul>
-        </details>
-        <details className="w-full max-w-2xl mt-4">
-          <summary className="cursor-pointer text-lg font-medium text-white">Brief Overview</summary>
-          <p className="mt-2 text-gray-300">{project.brief}</p>
-        </details>
-        <Link
-          href={project.link}
-          target="_blank"
-          rel="noreferrer noopener"
-          className="py-2 px-4 button-primary text-white rounded-lg"
-        >
-          Visit Site
-        </Link>
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="p-4 border border-[#2A0E61] rounded-lg space-y-2">
+            <h2 className="text-lg font-medium text-white">Technologies Used</h2>
+            <ul className="list-disc pl-5 text-gray-300 space-y-1">
+              {project.technologies.map((tech) => (
+                <li key={tech}>{tech}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="p-4 border border-[#2A0E61] rounded-lg space-y-2">
+            <h2 className="text-lg font-medium text-white">Brief Overview</h2>
+            <p className="text-gray-300">{project.brief}</p>
+          </div>
+        </div>
+        <div className="text-center">
+          <Link
+            href={project.link}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="py-2 px-4 button-primary text-white rounded-lg"
+          >
+            Visit Site
+          </Link>
+        </div>
       </div>
     </main>
   );
