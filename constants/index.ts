@@ -263,6 +263,9 @@ export const PROJECTS = [
     slug: "qkss-map-pin",
     description:
       "The QKSS Map Pin platform is a comprehensive monitoring tool designed to track and document events that influence interethnic relations in Kosovo. It serves as a resource to support early warning mechanisms, informed policy analysis, and initiatives aimed at fostering dialogue and building trust among communities.By systematically collecting and mapping incidents and developments, the platform offers real-time insight into dynamics that may impact social cohesion, security, and stability.",
+    technologies: ["Next.js", "Tailwind CSS", "Node.js", "MongoDB"],
+    brief:
+      "A robust monitoring solution providing real-time insights on interethnic relations to aid policy analysis and community dialogue.",
     image: "/projects/project-1.png",
     link: "https://imap.qkss.org/",
   },
@@ -271,6 +274,9 @@ export const PROJECTS = [
     slug: "interactive-cards-portfolio",
     description:
       'Step into the extraordinary world of my professional journey through the "Interactive Cards Portfolio" - an innovative and visually captivating platform that redefines the traditional portfolio experience. Ditching the conventional static layout, this portfolio leverages interactive cards to showcase my skills, projects, and personality in an engaging and dynamic manner.',
+    technologies: ["React", "Framer Motion", "CSS"],
+    brief:
+      "An engaging portfolio site featuring animated cards that highlight skills and projects in a memorable format.",
     image: "/projects/project-2.png",
     link: "https://example.com",
   },
@@ -279,6 +285,9 @@ export const PROJECTS = [
     slug: "space-themed-website",
     description:
       'Embark on an interstellar journey with my "Space Themed Website", a mesmerizing space-themed website that invites you to explore the cosmic wonders beyond our world. Immerse yourself in an awe-inspiring digital experience that blends cutting-edge design with the mysteries of the universe.',
+    technologies: ["React", "Three.js", "Next.js"],
+    brief:
+      "A captivating site that combines sleek design with space-inspired visuals to deliver an immersive browsing experience.",
     image: "/projects/project-3.png",
     link: "https://example.com",
   },

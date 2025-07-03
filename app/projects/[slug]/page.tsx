@@ -29,6 +29,18 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           className="w-full object-contain rounded-lg"
         />
         <p className="text-gray-300 text-center">{project.description}</p>
+        <details className="w-full max-w-2xl">
+          <summary className="cursor-pointer text-lg font-medium text-white">Technologies Used</summary>
+          <ul className="list-disc pl-5 mt-2 text-gray-300">
+            {project.technologies.map((tech) => (
+              <li key={tech}>{tech}</li>
+            ))}
+          </ul>
+        </details>
+        <details className="w-full max-w-2xl mt-4">
+          <summary className="cursor-pointer text-lg font-medium text-white">Brief Overview</summary>
+          <p className="mt-2 text-gray-300">{project.brief}</p>
+        </details>
         <Link
           href={project.link}
           target="_blank"
