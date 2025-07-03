@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { SkillDataProvider } from "@/components/sub/skill-data-provider";
 import { SkillText } from "@/components/sub/skill-text";
 
@@ -10,8 +11,6 @@ import {
   OTHER_SKILL,
   SKILL_DATA,
 } from "@/constants";
-
-import { useState } from "react";
 
 const TABS = [
   { label: "All", data: SKILL_DATA },
@@ -32,16 +31,18 @@ export const Skills = () => {
     >
       <SkillText />
 
-      <div className="flex gap-4 mt-6">
+      <div className="flex gap-4 mt-6 flex-wrap justify-center">
         {TABS.map((tab, i) => (
           <button
             key={tab.label}
             onClick={() => setActive(i)}
-            className={`px-3 py-1 rounded border text-sm ${
-              active === i
-                ? "bg-gradient-to-r from-purple-500 to-cyan-500 text-white border-transparent"
-                : "border-[#7042f88b] text-white"
-            }`}
+            className={`relative px-5 py-2 text-sm font-medium rounded transition-all duration-300 border 
+              ${
+                active === i
+                  ? "bg-gradient-to-r from-purple-600 to-cyan-500 text-white border-transparent shadow-lg scale-105"
+                  : "border-[#7042f88b] text-white hover:scale-105 hover:shadow-md hover:border-cyan-500"
+              }
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500`}
           >
             {tab.label}
           </button>
@@ -61,19 +62,18 @@ export const Skills = () => {
         ))}
       </div>
 
-      <div className="w-full h-full absolute">
-        <div className="w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover">
-          <video
-            className="w-full h-auto"
-            preload="false"
-            playsInline
-            loop
-            muted
-            autoPlay
-          >
-            <source src="/videos/skills-bg.webm" type="video/webm" />
-          </video>
-        </div>
+      {/* Background Video */}
+      <div className="absolute inset-0 z-[-10] opacity-30 pointer-events-none">
+        <video
+          className="w-full h-full object-cover"
+          preload="false"
+          playsInline
+          loop
+          muted
+          autoPlay
+        >
+          <source src="/videos/skills-bg.webm" type="video/webm" />
+        </video>
       </div>
     </section>
   );
