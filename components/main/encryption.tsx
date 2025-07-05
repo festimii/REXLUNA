@@ -57,7 +57,7 @@ export const Encryption = () => {
           autoPlay
           playsInline
           preload="false"
-          className="w-full h-[400px] md:h-[600px] object-cover"
+          className="w-full h-[400px] md:h-[600px] object-cover scale-[1.25] md:scale-100"
         >
           <source src="/videos/encryption-bg.webm" type="video/webm" />
         </video>

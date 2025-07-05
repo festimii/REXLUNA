@@ -65,7 +65,7 @@ export const Skills = () => {
       {/* Background Video */}
       <div className="absolute inset-0 z-[-10] opacity-30 pointer-events-none">
         <video
-          className="w-full h-full object-cover scale-[1.2] md:scale-100"
+          className="w-full h-full object-cover scale-[1.4] md:scale-100"
           preload="false"
           playsInline
           loop
