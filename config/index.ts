@@ -6,7 +6,7 @@ export const siteConfig: Metadata = {
   metadataBase,
   title: "DEXLUNA | Softweare Solutions",
   description:
-    "Software Solutions for your business, powered by Next.js 14 and React.",
+    "DEXLUNA Software Solutions provides VoIP support and custom software development for businesses across Southeastern Europe, powered by Next.js 14 and React.",
   keywords: [
     "reactjs",
     "nextjs",
@@ -91,6 +91,15 @@ export const siteConfig: Metadata = {
     "zhvillim softuerësh cloud",
     "faqe interneti profesionale",
     "agjenci dizajni dhe zhvillimi",
+    "VoIP solutions",
+    "VoIP support",
+    "VoIP services",
+    "business telephony",
+    "telecommunication",
+    "Southeastern Europe",
+    "Kosovo",
+    "Balkan region",
+    "unified communications",
   ] as Array<string>,
   authors: {
     name: "FestimBEQIRI",
@@ -99,7 +108,7 @@ export const siteConfig: Metadata = {
   openGraph: {
     title: "DEXLUNA | Softweare Solutions",
     description:
-      "Software Solutions for your business, powered by Next.js 14 and React.",
+      "DEXLUNA Software Solutions provides VoIP support and custom software development for businesses across Southeastern Europe, powered by Next.js 14 and React.",
     url: "https://dexluna.com",
     siteName: "DEXLUNA",
     images: [
@@ -117,7 +126,7 @@ export const siteConfig: Metadata = {
     card: "summary_large_image",
     title: "DEXLUNA | Softweare Solutions",
     description:
-      "Software Solutions for your business, powered by Next.js 14 and React.",
+      "DEXLUNA Software Solutions provides VoIP support and custom software development for businesses across Southeastern Europe, powered by Next.js 14 and React.",
     images: ["/logo1.png"],
   },
   alternates: {
